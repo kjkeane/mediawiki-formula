@@ -1,0 +1,64 @@
+mediawiki:
+  wiki-example:
+    SiteName: Example Wiki
+    Server: https://wiki.example.com
+    EmergencyContact: apache@wiki.example.com
+    PasswordSender: apache@wiki.example.com
+    DBtype: mysql
+    DBserver: localhost
+    DBname: wikidb
+    DBuser: wikuser
+    DBpassword: abcde12345
+    CacheType: CACHE_MEMCACHED
+    MemCachedServers: '127.0.0.1:11211'
+    plugins:
+      PluggableAuth:
+        settings:
+          PluggableAuth_Class: SimpleSAMLphp
+          PluggableAuth_EnableLocalLogin: true
+          PluggableAuth_ButtonLabelMessage: 'Login with ADFS'
+      SimpleSAMLphp:
+        settings:
+          SimpleSAMLphp_InstallDir: '/opt/simplesamlphp'
+          SimpleSAMLphp_AuthSourceId: 'wiki-dev-sp'
+          SimpleSAMLphp_RealNameAttribute: 'DisplayName'
+          SimpleSAMLphp_EmailAttribute: 'Email'
+          SimpleSAMLphp_UsernameAttribute: 'SAM-Account-Name'
+          SimpleSAMLphp_GroupMap: | # use '|' to have ')' on new line
+            array(
+              'sysop' => ['http://schemas.xmlsoap.org/claims/Group' => ['All-WikiAdmins']],
+              'user' => ['http://schemas.xmlsoap.org/claims/Group' => ['All-WikiDev-Users']]
+            )
+      VisualEditor:
+        settings:
+          VirtualRestConfig: |
+            ['modules']['parsoid'] = array(
+              'url' => 'http://localhost:8000',
+              'domain' => 'localhost',
+              'prefix' => 'localhost',
+              'forwardCookies' => true
+            )
+          DefaultUserOptions: "['visualeditor-enable'] = 1"
+          HiddenPrefs[]: 'visualeditor-enable'
+      Scribunto:
+        settings:
+          ScribuntoDefaultEngine: 'luastandalone'
+    GroupPermissions:
+      createaccount:
+        user: '*'
+        enable: False
+      autocreateaccount:
+        user: '*'
+        enable: False
+      edit:
+        user: '*'
+        enable: False
+      read:
+        user: '*'
+        enable: False
+      interwiki:
+        user: sysop
+        enable: True
+      nuke:
+        user: sysop
+        enable: True
