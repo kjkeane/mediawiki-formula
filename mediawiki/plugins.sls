@@ -7,6 +7,7 @@
   git.latest:
     - name: https://gerrit.wikimedia.org/r/mediawiki/extensions/{{ plugin }}.git
     - rev: {{ mediawiki.git_branch }}
+    - branch: {{ mediawiki.git_branch }}
     - target: {{ mediawiki.install_dir }}/{{ site }}/extensions/{{ plugin }}
 {% endfor %}
 {% endfor %}
