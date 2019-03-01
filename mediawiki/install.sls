@@ -31,6 +31,7 @@ mediawiki_git_{{ site }}_install:
   git.latest:
     - name: https://gerrit.wikimedia.org/r/p/mediawiki/core.git
     - rev: {{ mediawiki.git_branch }}
+    - branch: {{ mediawiki.git_branch }}
     - target: {{ mediawiki.install_dir }}/{{ site }}
 
 # Vendor install required for Mediawiki
@@ -38,5 +39,6 @@ mediawiki_git_vendor_{{ site }}_install:
   git.latest:
     - name: https://gerrit.wikimedia.org/r/mediawiki/vendor.git
     - rev: {{ mediawiki.git_branch }}
+    - branch: {{ mediawiki.git_branch }}
     - target: {{ mediawiki.install_dir }}/{{ site }}/vendor
 {% endfor %}
