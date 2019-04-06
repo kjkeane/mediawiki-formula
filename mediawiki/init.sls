@@ -1,6 +1,3 @@
 include:
-  - .install
-  - .repos
+  - .package
   - .config
-  - .plugins
-  - .skins

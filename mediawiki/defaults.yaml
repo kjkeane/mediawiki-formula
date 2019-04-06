@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+mediawiki:
+  user: 'apache'
+  group: 'root'
+  version: '1.32.0'
+  config: 'LocalSettings.php'
+  install_dir: '/var/www/html'
+  git_branch: 'REL1_32'
+  pkgs:
+    - mod_php71u
+    - php71u-cli
+    - php71u-common
+    - php71u-dba
+    - php71u-dbg
+    - php71u-devel
+    - php71u-fpm
+    - php71u-intl
+    - php71u-json
+    - php71u-ldap
+    - php71u-mbstring
+    - php71u-mcrypt
+    - php71u-mysqlnd
+    - php71u-opcache
+    - php71u-pdo
+    - php71u-pecl-apcu
+    - php71u-pecl-igbinary
+    - php71u-pecl-imagick
+    - php71u-pecl-memcached
+    - php71u-xml
