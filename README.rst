@@ -9,7 +9,7 @@ Available states
 .. contents::
   :local:
 
-Use the supplied config.json for a flat file approach,
+Use the supplied DefaultSettings.php for a flat file approach,
 or the jinja template and pillar for a salt approach.
 
 ``mediawiki``
