@@ -1,0 +1,7 @@
+name: mediawiki
+title: Mediawiki Formula
+maintainer: Kolin Keane
+license: Apache-2.0
+summaary: Verify that the Mediawiki formula is setup and configured correctly
+supports:
+  - os-name: centos
