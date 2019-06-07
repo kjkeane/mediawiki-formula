@@ -22,10 +22,8 @@ $wgSitename = "{{ site }}";
 $wgScriptPath = "";
 $wgScriptExtension = ".php";
 
-{%- if site_items.Localtimezone is defined %}
 $wgLocaltimezone = "{{ site_items.Localtimezone|default('UTC') }}";
-{%- endif %}
-date_default_timezone_set("$wgLocaltimezone );
+date_default_timezone_set("$wgLocaltimezone");
 
 $wgServer = "{{ site_items.Server|default('') }}";
 
