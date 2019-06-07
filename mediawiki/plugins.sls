@@ -9,5 +9,6 @@
     - rev: {{ mediawiki.git_branch }}
     - branch: {{ mediawiki.git_branch }}
     - target: {{ mediawiki.install_dir }}/{{ site }}/extensions/{{ plugin }}
+    - submodules: True
 {% endfor %}
 {% endfor %}
